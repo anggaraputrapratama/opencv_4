@@ -8,6 +8,7 @@ import org.opencv.imgproc.Imgproc
 import java.io.FileInputStream
 import java.io.InputStream
 import io.flutter.plugin.common.MethodChannel
+import org.opencv.core.Point
 import java.lang.Exception
 
 class MorphologyExFactory {
@@ -37,7 +38,7 @@ class MorphologyExFactory {
                 val kernel = Mat.ones(kernelSize[0], kernelSize[0], CvType.CV_32F)
 
                 // Morphological operation
-                Imgproc.morphologyEx(src, dst, operation, kernel, iterations)
+                Imgproc.morphologyEx(src, dst, operation, kernel, Point(-1.0,-1.0), iterations)
 
                 // instantiating an empty MatOfByte class
                 val matOfByte = MatOfByte()
