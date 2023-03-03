@@ -180,6 +180,7 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
                   call.argument<String>("pathString") as String,
                   call.argument<ByteArray>("data") as ByteArray,
                   call.argument<Int>("operation") as Int,
+                  call.argument<Int>("iteration") as Int,
                   call.argument<ArrayList<Int>>("kernelSize") as ArrayList<Int>,
                   result)
         } catch (e: Exception) {

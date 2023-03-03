@@ -8,20 +8,21 @@ import org.opencv.imgproc.Imgproc
 import java.io.FileInputStream
 import java.io.InputStream
 import io.flutter.plugin.common.MethodChannel
+import java.lang.Exception
 
 class MorphologyExFactory {
     companion object{
 
-        fun process(pathType: Int,pathString: String, data: ByteArray, operation: Int, kernelSize: ArrayList<Int>, result: MethodChannel.Result) {
+        fun process(pathType: Int,pathString: String, data: ByteArray, operation: Int, kernelSize: ArrayList<Int>, iterations: Int, result: MethodChannel.Result) {
             when (pathType){
-                1 -> result.success(morphologyExS(pathString, operation, kernelSize))
+                1 -> result.success(morphologyExS(pathString, operation, kernelSize, iterations))
                 2 -> result.success(morphologyExB(data, operation, kernelSize))
                 3 -> result.success(morphologyExB(data, operation, kernelSize))
             }
         }
 
         //Module: Image Filtering
-        private fun morphologyExS(pathString: String, operation: Int, kernelSize: ArrayList<Int>): ByteArray? {
+        private fun morphologyExS(pathString: String, operation: Int, kernelSize: ArrayList<Int>, iterations: Int): ByteArray? {
             val inputStream: InputStream = FileInputStream(pathString.replace("file://", ""))
             val data: ByteArray = inputStream.readBytes()
 
@@ -36,7 +37,7 @@ class MorphologyExFactory {
                 val kernel = Mat.ones(kernelSize[0], kernelSize[0], CvType.CV_32F)
 
                 // Morphological operation
-                Imgproc.morphologyEx(src, dst, operation, kernel)
+                Imgproc.morphologyEx(src, dst, operation, kernel, iterations)
 
                 // instantiating an empty MatOfByte class
                 val matOfByte = MatOfByte()
@@ -44,7 +45,7 @@ class MorphologyExFactory {
                 Imgcodecs.imencode(".jpg", dst, matOfByte)
                 byteArray = matOfByte.toArray()
                 return byteArray
-            } catch (e: java.lang.Exception) {
+            } catch (e: Exception) {
                 println("OpenCV Error: $e")
                 return data
             }
@@ -72,7 +73,7 @@ class MorphologyExFactory {
                 Imgcodecs.imencode(".jpg", dst, matOfByte)
                 byteArray = matOfByte.toArray()
                 return byteArray
-            } catch (e: java.lang.Exception) {
+            } catch (e: Exception) {
                 println("OpenCV Error: $e")
                 return data
             }

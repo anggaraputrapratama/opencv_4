@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
       );
 
       setState(() {
-        _byte;
         _visible = false;
       });
     } on PlatformException catch (e) {
@@ -193,9 +191,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('test assets'),
                             onPressed: _testFromAssets,
                             style: TextButton.styleFrom(
-                              primary: Colors.white,
+                              foregroundColor: Colors.white,
                               backgroundColor: Colors.teal,
-                              onSurface: Colors.grey,
+                              disabledForegroundColor:
+                                  Colors.grey.withOpacity(0.38),
                             ),
                           ),
                         ),
@@ -205,9 +204,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('test url'),
                             onPressed: _testFromUrl,
                             style: TextButton.styleFrom(
-                              primary: Colors.white,
+                              foregroundColor: Colors.white,
                               backgroundColor: Colors.teal,
-                              onSurface: Colors.grey,
+                              disabledForegroundColor:
+                                  Colors.grey.withOpacity(0.38),
                             ),
                           ),
                         ),
@@ -217,9 +217,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('test gallery'),
                             onPressed: _testFromGallery,
                             style: TextButton.styleFrom(
-                              primary: Colors.white,
+                              foregroundColor: Colors.white,
                               backgroundColor: Colors.teal,
-                              onSurface: Colors.grey,
+                              disabledForegroundColor:
+                                  Colors.grey.withOpacity(0.38),
                             ),
                           ),
                         ),
@@ -229,9 +230,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('test camara'),
                             onPressed: _testFromCamera,
                             style: TextButton.styleFrom(
-                              primary: Colors.white,
+                              foregroundColor: Colors.white,
                               backgroundColor: Colors.teal,
-                              onSurface: Colors.grey,
+                              disabledForegroundColor:
+                                  Colors.grey.withOpacity(0.38),
                             ),
                           ),
                         ),

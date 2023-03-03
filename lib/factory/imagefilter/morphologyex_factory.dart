@@ -3,7 +3,6 @@
  * See LICENSE for more details.
  */
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:opencv_4/factory/pathfrom.dart';
@@ -18,6 +17,7 @@ class MorphologyExFactory {
     required String pathString,
     required int operation,
     required List<int> kernelSize,
+    required int iterations,
   }) async {
     File _file;
     Uint8List _fileAssets;
@@ -40,6 +40,7 @@ class MorphologyExFactory {
             "data": Uint8List(0),
             'operation': operationTemp,
             'kernelSize': kernelSizeTemp,
+            'iteration': iterations
           },
         );
         break;
@@ -53,6 +54,7 @@ class MorphologyExFactory {
             "data": await _file.readAsBytes(),
             'operation': operationTemp,
             'kernelSize': kernelSizeTemp,
+            'iteration': iterations
           },
         );
 
@@ -67,6 +69,7 @@ class MorphologyExFactory {
             "data": _fileAssets,
             'operation': operationTemp,
             'kernelSize': kernelSizeTemp,
+            'iteration': iterations
           },
         );
         break;

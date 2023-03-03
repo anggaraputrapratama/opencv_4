@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_4.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_4.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_4.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_4.main.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_4.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_4.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_4.unitTest.iml" />
     </modules>
   </component>
 </project>

@@ -504,18 +504,19 @@ class Cv2 {
   }
 
   /// [morphologyEx] function of Module: Image Filtering
-  static Future<Uint8List?> morphologyEx({
-    CVPathFrom pathFrom = CVPathFrom.ASSETS,
-    required String pathString,
-    required int operation,
-    required List<int> kernelSize,
-  }) async {
+  static Future<Uint8List?> morphologyEx(
+      {CVPathFrom pathFrom = CVPathFrom.ASSETS,
+      required String pathString,
+      required int operation,
+      required List<int> kernelSize,
+      int? iterations}) async {
     /// Variable to store operation result
     final Uint8List? result = await MorphologyExFactory.morphologyEx(
       pathFrom: pathFrom,
       pathString: pathString,
       operation: operation,
       kernelSize: kernelSize,
+      iterations: iterations ?? 1,
     );
 
     /// Function returns the response from method channel
